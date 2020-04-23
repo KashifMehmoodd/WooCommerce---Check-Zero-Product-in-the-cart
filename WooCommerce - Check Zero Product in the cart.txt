@@ -1,0 +1,22 @@
+add_action( 'template_redirect', 'bbloomer_find_id_in_cart' );
+function bbloomer_find_id_in_cart($cart_item_data) {
+global $woocommerce;
+        foreach ( $woocommerce->cart->get_cart() as $cart_item_key => $values) {
+                $product = $values['data'];
+if ($product->price == 0) {
+$c += count($product->id);
+//echo "yyyt",$c;
+        if ($c > 1)
+        { 
+        $woocommerce->cart->empty_cart();
+        wp_redirect( 'http://tacosadrian.com/error-message/' );
+        }
+        else
+        {  }
+
+}
+                else
+                {}
+        }
+//return $cart_item_data;        
+}                
